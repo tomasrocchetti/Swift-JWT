@@ -77,7 +77,7 @@ public extension Claims {
     
     func encode() throws -> String {
         let jsonEncoder = JSONEncoder()
-        jsonEncoder.dateEncodingStrategy = .secondsSince1970
+        jsonEncoder.dateEncodingStrategy = .iso8601
         let data = try jsonEncoder.encode(self)
         return JWTEncoder.base64urlEncodedString(data: data)
     }
