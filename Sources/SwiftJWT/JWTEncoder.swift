@@ -152,7 +152,7 @@ fileprivate class _JWTEncoder: Encoder {
             self.codingPath.append(key)
             let fieldName = key.stringValue
             let jsonEncoder = JSONEncoder()
-            jsonEncoder.dateEncodingStrategy = .secondsSince1970
+            jsonEncoder.dateEncodingStrategy = .iso8601
             if fieldName == "header" {
                 guard var _header = value as? Header else {
                     throw EncodingError.invalidValue(value, EncodingError.Context(codingPath: [], debugDescription: "Failed to encode into header CodingKey"))
